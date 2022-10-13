@@ -17,5 +17,5 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy
-        uses: artronics/full-stack-deployment-action@v0.0.1
+        uses: artronics/full-stack-deployment-action@master
 
