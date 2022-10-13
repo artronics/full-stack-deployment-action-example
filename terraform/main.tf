@@ -14,7 +14,7 @@ terraform {
 }
 
 locals {
-  project = "terraform_action"
+  project = "terraform-action"
   service = "app"
   environment = terraform.workspace
 
