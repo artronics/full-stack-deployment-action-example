@@ -14,14 +14,13 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Deploy
-        uses: artronics/full-stack-deployment-action@master
+        uses: artronics/terraform-flow-action@v1
         with:
-          workspace: myws
+          workspace: dev
           path: terraform
-          dryrun: false
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 

@@ -1,1 +1,2 @@
-full-stack-deployment-action example
+Terraform flow:
+You can specify a terraform workspace.
