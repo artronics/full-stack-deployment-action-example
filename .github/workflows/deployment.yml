@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy
-        uses: artronics/terraform-flow-action@v1
+        uses: artronics/terraform-flow-action@v1.0.0
         with:
           workspace: dev
           path: terraform
