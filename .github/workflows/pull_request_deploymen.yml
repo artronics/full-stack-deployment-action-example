@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Deploy PR
-        uses: artronics/terraform-flow-action@v1.0.0
+        uses: artronics/terraform-flow-action@v1
         with:
 #         This creates a workspace with the name pr<pr-number> and then deploys it
           workspace: pr${{ github.event.pull_request.number }}
