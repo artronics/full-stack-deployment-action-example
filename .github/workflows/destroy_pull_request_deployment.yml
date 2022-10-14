@@ -1,26 +1,25 @@
-name: 'Pull Request deployment'
-
+name: Destroy Pull Request deployment
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
+    types: [closed]
 
 jobs:
-  dry-run:
-    name: Deploy PR
+  destroy-pr-deployment:
     runs-on: ubuntu-latest
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Deploy PR
+      - name: Destroy PR deployment
         uses: artronics/terraform-flow-action@v1.0.0
         with:
-#         This creates a workspace with the name pr<pr-number> and then deploys it
+          #         This will delete the PR deployment
           workspace: pr${{ github.event.pull_request.number }}
           path: terraform
+          destroy: true
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
